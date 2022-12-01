@@ -1,4 +1,5 @@
-import { Duration, propertyValidator, Stack, StackProps } from 'aws-cdk-lib';
+import * as cdk from 'aws-cdk-lib'
+
 import { CodePipeline, CodePipelineSource, ManualApprovalStep, ShellStep } from 'aws-cdk-lib/pipelines';
 import { Construct } from 'constructs';
 import { options } from '../config';
@@ -6,11 +7,11 @@ import { Options } from '../types/options';
 import { DeployStage } from './deploy-stage';
 
 
-interface PipelineStackProps extends StackProps{
+interface PipelineStackProps extends cdk.StackProps{
   options: Options;
 }
 
-export class AppStack extends Stack {
+export class AppStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: PipelineStackProps) {
     super(scope, id, props);
 

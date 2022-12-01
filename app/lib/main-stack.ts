@@ -14,7 +14,7 @@ interface MainStackProps extends cdk.StackProps{
 
 export class MainStack extends cdk.Stack{
     constructor(scope: Construct,stageName: string, props: MainStackProps){
-        super(scope, stageName, props);
+        super(scope, stageName, {...props});
         
         const bucket = new s3.Bucket(this,'DemoPipeline2Bucket',{
             bucketName: `${props.options.bucketName}-${props.stageEnvironment.toLocaleLowerCase()}`,
